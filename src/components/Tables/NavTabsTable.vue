@@ -1,12 +1,7 @@
 <template>
   <div>
     <md-table v-model="users" @md-selected="onSelect">
-      <md-table-row
-        slot="md-table-row"
-        slot-scope="{ item }"
-        md-selectable="multiple"
-        md-auto-select
-      >
+      <md-table-row slot="md-table-row" slot-scope="{ item }" md-selectable="multiple" md-auto-select>
         <md-table-cell>{{ item.name }}</md-table-cell>
         <md-table-cell>
           <md-button class="md-just-icon md-simple md-primary">
@@ -26,7 +21,7 @@
 <script>
 export default {
   name: "nav-tabs-table",
-  data() {
+  data () {
     return {
       selected: [],
       users: [
@@ -44,7 +39,7 @@ export default {
     };
   },
   methods: {
-    onSelect: function(items) {
+    onSelect: function (items) {
       this.selected = items;
     }
   }

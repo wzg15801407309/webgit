@@ -1,20 +1,12 @@
 <template>
   <div class="content">
     <div class="md-layout">
-      <div
-        class="md-layout-item md-medium-size-100 md-xsmall-size-100 md-size-33"
-      >
-        <chart-card
-          :chart-data="dailySalesChart.data"
-          :chart-options="dailySalesChart.options"
-          :chart-type="'Line'"
-          data-background-color="blue"
-        >
+      <div class="md-layout-item md-medium-size-100 md-xsmall-size-100 md-size-33">
+        <chart-card :chart-data="dailySalesChart.data" :chart-options="dailySalesChart.options" :chart-type="'Line'" data-background-color="blue">
           <template slot="content">
             <h4 class="title">Daily Sales</h4>
             <p class="category">
-              <span class="text-success"
-                ><i class="fas fa-long-arrow-alt-up"></i> 55%
+              <span class="text-success"><i class="fas fa-long-arrow-alt-up"></i> 55%
               </span>
               increase in today sales.
             </p>
@@ -28,16 +20,8 @@
           </template>
         </chart-card>
       </div>
-      <div
-        class="md-layout-item md-medium-size-100 md-xsmall-size-100 md-size-33"
-      >
-        <chart-card
-          :chart-data="emailsSubscriptionChart.data"
-          :chart-options="emailsSubscriptionChart.options"
-          :chart-responsive-options="emailsSubscriptionChart.responsiveOptions"
-          :chart-type="'Bar'"
-          data-background-color="red"
-        >
+      <div class="md-layout-item md-medium-size-100 md-xsmall-size-100 md-size-33">
+        <chart-card :chart-data="emailsSubscriptionChart.data" :chart-options="emailsSubscriptionChart.options" :chart-responsive-options="emailsSubscriptionChart.responsiveOptions" :chart-type="'Bar'" data-background-color="red">
           <template slot="content">
             <h4 class="title">Email Subscription</h4>
             <p class="category">
@@ -53,15 +37,8 @@
           </template>
         </chart-card>
       </div>
-      <div
-        class="md-layout-item md-medium-size-100 md-xsmall-size-100 md-size-33"
-      >
-        <chart-card
-          :chart-data="dataCompletedTasksChart.data"
-          :chart-options="dataCompletedTasksChart.options"
-          :chart-type="'Line'"
-          data-background-color="green"
-        >
+      <div class="md-layout-item md-medium-size-100 md-xsmall-size-100 md-size-33">
+        <chart-card :chart-data="dataCompletedTasksChart.data" :chart-options="dataCompletedTasksChart.options" :chart-type="'Line'" data-background-color="green">
           <template slot="content">
             <h4 class="title">Completed Tasks</h4>
             <p class="category">
@@ -77,9 +54,7 @@
           </template>
         </chart-card>
       </div>
-      <div
-        class="md-layout-item md-medium-size-50 md-xsmall-size-100 md-size-25"
-      >
+      <div class="md-layout-item md-medium-size-50 md-xsmall-size-100 md-size-25">
         <stats-card data-background-color="green">
           <template slot="header">
             <md-icon>store</md-icon>
@@ -98,9 +73,7 @@
           </template>
         </stats-card>
       </div>
-      <div
-        class="md-layout-item md-medium-size-50 md-xsmall-size-100 md-size-25"
-      >
+      <div class="md-layout-item md-medium-size-50 md-xsmall-size-100 md-size-25">
         <stats-card data-background-color="orange">
           <template slot="header">
             <md-icon>content_copy</md-icon>
@@ -122,9 +95,7 @@
           </template>
         </stats-card>
       </div>
-      <div
-        class="md-layout-item md-medium-size-50 md-xsmall-size-100 md-size-25"
-      >
+      <div class="md-layout-item md-medium-size-50 md-xsmall-size-100 md-size-25">
         <stats-card data-background-color="red">
           <template slot="header">
             <md-icon>info_outline</md-icon>
@@ -143,9 +114,7 @@
           </template>
         </stats-card>
       </div>
-      <div
-        class="md-layout-item md-medium-size-50 md-xsmall-size-100 md-size-25"
-      >
+      <div class="md-layout-item md-medium-size-50 md-xsmall-size-100 md-size-25">
         <stats-card data-background-color="blue">
           <template slot="header">
             <i class="fab fa-twitter"></i>
@@ -164,9 +133,7 @@
           </template>
         </stats-card>
       </div>
-      <div
-        class="md-layout-item md-medium-size-100 md-xsmall-size-100 md-size-50"
-      >
+      <div class="md-layout-item md-medium-size-100 md-xsmall-size-100 md-size-50">
         <md-card>
           <md-card-header data-background-color="orange">
             <h4 class="title">Employees Stats</h4>
@@ -177,9 +144,7 @@
           </md-card-content>
         </md-card>
       </div>
-      <div
-        class="md-layout-item md-medium-size-100 md-xsmall-size-100 md-size-50"
-      >
+      <div class="md-layout-item md-medium-size-100 md-xsmall-size-100 md-size-50">
         <nav-tabs-card>
           <template slot="content">
             <span class="md-nav-tabs-title">Tasks:</span>
@@ -220,7 +185,7 @@ export default {
     NavTabsTable,
     OrderedTable
   },
-  data() {
+  data () {
     return {
       dailySalesChart: {
         data: {
@@ -298,7 +263,7 @@ export default {
             {
               seriesBarDistance: 5,
               axisX: {
-                labelInterpolationFnc: function(value) {
+                labelInterpolationFnc: function (value) {
                   return value[0];
                 }
               }
