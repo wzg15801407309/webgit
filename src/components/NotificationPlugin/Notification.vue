@@ -1,20 +1,6 @@
 <template>
-  <div
-    @click="close()"
-    data-notify="container"
-    class="alert open alert-with-icon"
-    role="alert"
-    :class="[verticalAlign, horizontalAlign, alertType]"
-    :style="customPosition"
-    data-notify-position="top-center"
-  >
-    <button
-      type="button"
-      aria-hidden="true"
-      class="close"
-      data-notify="dismiss"
-      @click="close"
-    >
+  <div @click="close()" data-notify="container" class="alert open alert-with-icon" role="alert" :class="[verticalAlign, horizontalAlign, alertType]" :style="customPosition" data-notify-position="top-center">
+    <button type="button" aria-hidden="true" class="close" data-notify="dismiss" @click="close">
       ×
     </button>
     <i data-notify="icon" class="material-icons">{{ icon }}</i>
@@ -48,19 +34,19 @@ export default {
       default: () => new Date()
     }
   },
-  data() {
+  data () {
     return {
       elmHeight: 0
     };
   },
   computed: {
-    hasIcon() {
+    hasIcon () {
       return this.icon && this.icon.length > 0;
     },
-    alertType() {
+    alertType () {
       return `alert-${this.type}`;
     },
-    customPosition() {
+    customPosition () {
       let initialMargin = 20;
       let alertHeight = this.elmHeight + 10;
       let sameAlertsCount = this.$notifications.state.filter(alert => {
@@ -81,11 +67,11 @@ export default {
     }
   },
   methods: {
-    close() {
+    close () {
       this.$emit("on-close", this.timestamp);
     }
   },
-  mounted() {
+  mounted () {
     this.elmHeight = this.$el.clientHeight;
     if (this.timeout) {
       setTimeout(this.close, this.timeout);

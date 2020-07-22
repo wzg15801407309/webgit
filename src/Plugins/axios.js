@@ -1,7 +1,9 @@
 'use strict'
 
-import axios from 'axios'
+import axios from 'axios';
+import { } from 'vue-material';
 axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded'
+import { from } from 'core-js/fn/array';
 axios.defaults.withCredentials = false
 
 let config = {
@@ -14,19 +16,13 @@ const _axios = axios.create(config)
 // 请求拦截
 _axios.interceptors.request.use(
     config => {
-        // 检查是否登陆
-        if (config.url != 'user/signin') {
-            if (window.sessionStorage.getItem('token')) {
-                config.headers['Authorization'] = window.sessionStorage.getItem('token')
-                // Nprogress.start()
-            } else {
-                // 跳转到登陆页面
-                // alert('123456')
-                window.location.href = '/'
-            }
+        const token = window.sessionStorage.getItem('token');
+        if (token && (config.headers.Authorization = token)) {
+            config.headers['Authorization'] = token;
+        } else {
+            window.location.href = '/login'
         }
-        // Nprogress.start()
-        return config
+        return config;
     },
     error => {
         return Promise.reject(error)
@@ -41,11 +37,11 @@ _axios.interceptors.response.use(
             switch (data.errcode) {
                 case 401:
                     // 未登陆
-                    window.location.href = '/'
+                    window.location.href = '/login'
                     break
                 case 413:
                     // 已登录
-                    window.location.href = '/manage'
+                    window.location.href = '/home'
                     break
                 case 404:// 资源不存在
                     break
